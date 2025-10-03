@@ -322,6 +322,18 @@ p {
   color: var(--accent);
 }
 
+.skills-list { 
+  display: grid; 
+  gap: .75rem; 
+  padding-left: 1.25rem; 
+}
+.skills-list li { 
+  list-style: disc; 
+}
+.skills-list small { 
+  opacity: .75; 
+}
+
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
