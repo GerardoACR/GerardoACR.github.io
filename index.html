@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerardo Antonio Corral Ruiz</title>
+  <meta name="description" content="Welcome to my site." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/png" href="assets/images/profile.png" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="site-logo" href="#top" aria-label="Gerardo Antonio Corral Ruiz home">
+      <span class="logo-initials">GC</span>
+      <span class="logo-name">Gerardo Corral</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul id="primary-navigation" class="nav-list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="resume-link" href="assets/resume/Gerardo-Corral-Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="intro-title">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Welcome to my site.</p>
+        <h1 id="intro-title">Gerardo Antonio Corral Ruiz</h1>
+        <p class="hero-tagline">Graduate student in Digital Innovation &amp; Governance; focused on Data Science, ML/AI &amp; causal inference. Voracious learner, language lover, and public philosophy.</p>
+        <ul class="hero-meta">
+          <li><span aria-hidden="true">📍</span> Bologna, Italy</li>
+          <li><span aria-hidden="true">🎓</span> University of Bologna</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore projects</a>
+          <a class="button ghost" href="assets/resume/Gerardo-Corral-Resume.pdf" target="_blank" rel="noopener">View résumé</a>
+        </div>
+        <ul class="hero-social" aria-label="Social media">
+          <li><a href="https://twitter.com/ger_corral" aria-label="Twitter">Twitter ↗</a></li>
+          <li><a href="https://www.linkedin.com/in/gerardo-antonio-corral-ruiz-38b154158" aria-label="LinkedIn">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/GerardoACR" aria-label="GitHub">GitHub ↗</a></li>
+          <li><a href="mailto:gerardocorralr@hotmail.com" aria-label="Email">Email</a></li>
+          <li><a href="https://instagram.com/ger_corral" aria-label="Instagram">Instagram ↗</a></li>
+        </ul>
+      </div>
+      <div class="hero-media">
+        <div class="media-card">
+          <img src="assets/images/profile.png" alt="Portrait of Gerardo Antonio Corral Ruiz" />
+          <div class="media-card-body">
+            <p class="media-title">Hi 👋, I'm Gerardo Corral</p>
+            <p class="media-subtitle">Digital Transformation &amp; Governance graduate student @ University of Bologna</p>
+            <a class="media-link" href="mailto:gerardocorralr@hotmail.com">Let's connect</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="section-header">
+        <h2>About</h2>
+        <p>Curious-minded analyst bridging public policy and advanced analytics.</p>
+      </div>
+      <div class="section-content">
+        <p>
+          I'm a Digital Innovation &amp; Governance graduate student with a passion for using data science, machine learning, and causal inference to uncover actionable insights. My work spans public philosophy, multilingual communication, and
+          technology strategy. I thrive in collaborative environments where experimentation and interdisciplinarity drive impact.
+        </p>
+        <p>
+          This site is a living record of my projects, writing, and adventures in learning. Feel free to explore, and don't hesitate to reach out if you'd like to collaborate on innovative data-driven initiatives.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="section skills" aria-labelledby="skills-title">
+      <div class="section-header">
+        <h2 id="skills-title">Skills</h2>
+        <p>Update your skills by editing <code>assets/data/skills.json</code>.</p>
+      </div>
+      <div class="skills-grid" id="skills-grid" role="list"></div>
+    </section>
+
+    <section id="projects" class="section projects" aria-labelledby="projects-title">
+      <div class="section-header">
+        <h2 id="projects-title">Projects</h2>
+        <p>A snapshot of recent work in data science, policy, and design.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Policy Data Atlas</h3>
+          <p>Designed a data platform to map causal relationships in policy outcomes using open data and Bayesian inference models.</p>
+          <a class="card-link" href="#" aria-label="Read more about Policy Data Atlas">Case study coming soon</a>
+        </article>
+        <article class="card">
+          <h3>GovTech Literacy Lab</h3>
+          <p>Built interactive workshops that teach public servants how to partner with machine learning teams to co-create civic innovations.</p>
+          <a class="card-link" href="#" aria-label="Read more about GovTech Literacy Lab">Case study coming soon</a>
+        </article>
+        <article class="card">
+          <h3>Language Learner Dashboard</h3>
+          <p>Created a multilingual dashboard that tracks language acquisition progress across vocabulary, grammar, and cultural immersion.</p>
+          <a class="card-link" href="#" aria-label="Read more about Language Learner Dashboard">Case study coming soon</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="writing" class="section writing" aria-labelledby="writing-title">
+      <div class="section-header">
+        <h2 id="writing-title">Writing &amp; Public Philosophy</h2>
+        <p>Selected essays and reflections that explore technology, society, and meaning.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Designing Ethical AI for the Public Sector</h3>
+          <p>Exploring frameworks that center human values and accountability when deploying data science within government institutions.</p>
+          <a class="card-link" href="#" aria-label="Read Designing Ethical AI for the Public Sector">Read soon</a>
+        </article>
+        <article class="card">
+          <h3>Linguistic Curiosity as a Catalyst for Innovation</h3>
+          <p>Reflecting on how language learning sharpens empathy, creativity, and the ability to bridge diverse communities.</p>
+          <a class="card-link" href="#" aria-label="Read Linguistic Curiosity as a Catalyst for Innovation">Read soon</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="footer-content">
+      <div>
+        <h2 class="footer-title">Let's collaborate</h2>
+        <p>Have an opportunity, research idea, or project in mind? I'm always excited to connect.</p>
+      </div>
+      <div class="footer-actions">
+        <a class="button primary" href="mailto:gerardocorralr@hotmail.com">Email me</a>
+        <a class="button ghost" href="https://www.linkedin.com/in/gerardo-antonio-corral-ruiz-38b154158" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <p>© <span id="current-year"></span> Gerardo Antonio Corral Ruiz. Crafted with curiosity.</p>
+      <a href="#top" class="back-to-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
