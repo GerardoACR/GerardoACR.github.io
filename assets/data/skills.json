@@ -1,27 +1,47 @@
 [
   {
-    "name": "Machine Learning",
+    "name": "Python",
+    "level": "Intermediate",
+    "description": "Pandas, Seaborn, Numpy, Sklearn, DoWhy"
+  },
+  {
+    "name": "R",
+    "level": "Low intermediate",
+    "description": ""
+  },
+  {
+    "name": "JavaScript",
+    "level": "Low intermediate",
+    "description": ""
+  },
+  {
+    "name": "SQL",
+    "level": "Low intermediate",
+    "description": ""
+  },
+  {
+    "name": "Spanish (native)",
+    "level": "Native",
+    "description": ""
+  },
+  {
+    "name": "English",
+    "level": "B2 Toefl iBT",
+    "description": ""
+  },
+  {
+    "name": "Italian",
+    "level": "B2 University of Bologna",
+    "description": ""
+  },
+  {
+    "name": "Japanese",
+    "level": "A1",
+    "description": "Without certification"
+  },
+    {
+    "name": "Adobe",
     "level": "Advanced",
-    "description": "Building predictive and causal models with Python, scikit-learn, PyMC, and modern MLops tooling."
-  },
-  {
-    "name": "Causal Inference",
-    "level": "Advanced",
-    "description": "Designing experiments, quasi-experimental evaluations, and counterfactual analyses for policy insights."
-  },
-  {
-    "name": "Data Storytelling",
-    "level": "Expert",
-    "description": "Translating complex analyses into compelling narratives for stakeholders across policy and civic sectors."
-  },
-  {
-    "name": "Governance & Digital Policy",
-    "level": "Advanced",
-    "description": "Bridging public administration and emerging technologies to deliver responsible, human-centered innovation."
-  },
-  {
-    "name": "Languages",
-    "level": "Fluent",
-    "description": "Spanish (native), English (C2), Italian (B2), Portuguese (B1), plus ongoing exploration of new languages."
+    "description": "Photoshop, Premiere"
   }
 ]
