@@ -6,7 +6,7 @@
   },
   {
     "name": "R",
-    "level": "Low intermediate",
+    "level": "Intermediate",
     "description": ""
   },
   {
@@ -20,18 +20,18 @@
     "description": ""
   },
   {
-    "name": "Spanish (native)",
+    "name": "Spanish",
     "level": "Native",
     "description": ""
   },
   {
     "name": "English",
-    "level": "B2 Toefl iBT",
+    "level": "C1 Toefl iBT",
     "description": ""
   },
   {
     "name": "Italian",
-    "level": "B2 University of Bologna",
+    "level": "C1 University of Bologna",
     "description": ""
   },
   {
@@ -43,5 +43,10 @@
     "name": "Adobe",
     "level": "Advanced",
     "description": "Photoshop, Premiere"
+  },
+  {
+    "name": "Gen AI",
+    "level": "High intermediate",
+    "description": "Midjourney, ComfyUI, ChatGPT, NotebookLM"
   }
 ]
