@@ -32,6 +32,59 @@ const defaultProjects = [
   },
 ];
 
+const defaultSkills = [
+  {
+    name: 'Python',
+    level: 'Intermediate',
+    description: 'Pandas, Seaborn, Numpy, Sklearn, DoWhy',
+  },
+  {
+    name: 'R',
+    level: 'Intermediate',
+    description: '',
+  },
+  {
+    name: 'JavaScript',
+    level: 'Low intermediate',
+    description: '',
+  },
+  {
+    name: 'SQL',
+    level: 'Low intermediate',
+    description: '',
+  },
+  {
+    name: 'Spanish',
+    level: 'Native',
+    description: '',
+  },
+  {
+    name: 'English',
+    level: 'C1 Toefl iBT',
+    description: '',
+  },
+  {
+    name: 'Italian',
+    level: 'C1 University of Bologna',
+    description: '',
+  },
+  {
+    name: 'Japanese',
+    level: 'A1',
+    description: 'Without certification',
+  },
+  {
+    name: 'Adobe',
+    level: 'Advanced',
+    description: 'Photoshop, Premiere',
+  },
+  {
+    name: 'Gen AI',
+    level: 'High intermediate',
+    description: 'Midjourney, ComfyUI, ChatGPT, NotebookLM',
+  },
+];
+
 let activeProjectIndex = 0;
 let projectCount = 0;
 let projectControlsBound = false;
@@ -235,13 +288,7 @@ async function loadSkills() {
     renderSkills(skills);
   } catch (error) {
     console.error(error);
-    const hasStaticSkills = skillsGrid.querySelector('.skill-item');
-    if (hasStaticSkills) {
-      registerRevealElements(skillsGrid);
-      return;
-    }
-
-    skillsGrid.innerHTML = '<p class="skills-error">No se pudo cargar <code>assets/data/skills.json</code>. Publica el sitio con servidor (no <code>file://</code>) o revisa la ruta del archivo.</p>';
+    renderSkills(defaultSkills);
   }
 }
 
