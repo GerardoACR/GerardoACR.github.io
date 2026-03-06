@@ -18,11 +18,17 @@
     "href": "https://gercorral.medium.com"
   },
   {
-  "title": "Cyber Threats in IIoT: Can ML Mitigate Vulnerabilities and Prevent Harm? [ENG]",
-  "description": "This paper examines how machine learning can support intrusion detection in industrial Internet of Things and Operational Technology (IIoT/OT) environments. Drawing on experiments with the ToN_IoT Modbus dataset, it evaluates whether ML models can help detect cyber threats, reduce missed attacks, and mitigate risks to critical infrastructure, while also contributing to a governance-oriented perspective in which detection supports more informed cyber risk management and decision-making.",
-  "cta": "Read the paper (PDF)",
-  "href": "assets/documents/cyberThreatsPaper.pdf",
-  "cta2": "View full repository",
-  "href2": "https://github.com/GerardoACR/iiot_ids_project"
+    "title": "Cyber Threats in IIoT: Can ML Mitigate Vulnerabilities and Prevent Harm? [ENG]",
+    "description": "This paper examines how machine learning can support intrusion detection in industrial Internet of Things and Operational Technology (IIoT/OT) environments. Drawing on experiments with the ToN_IoT Modbus dataset, it evaluates whether ML models can help detect cyber threats, reduce missed attacks, and mitigate risks to critical infrastructure, while also contributing to a governance-oriented perspective in which detection supports more informed cyber risk management and decision-making.",
+    "links": [
+      {
+        "cta": "Read the paper (PDF)",
+        "href": "assets/documents/cyberThreatsInIIoT.pdf"
+      },
+      {
+        "cta": "View full repository",
+        "href": "https://github.com/GerardoACR/iiot_ids_project"
+      }
+    ]
   }
 ]

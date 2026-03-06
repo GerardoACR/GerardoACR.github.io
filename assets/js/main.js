@@ -210,12 +210,45 @@ function normalizeProjects(projects) {
 
   return projects
     .filter((project) => project && typeof project === 'object' && project.title)
-    .map((project) => ({
-      title: project.title,
-      description: project.description ?? '',
-      cta: project.cta ?? 'View project',
-      href: project.href ?? '#',
-    }));
+    .map((project) => {
+      const links = [];
+      const rawLinks = Array.isArray(project.links) ? project.links : [];
+
+      rawLinks.forEach((link) => {
+        if (!link || typeof link !== 'object') return;
+        const cta = String(link.cta ?? link.label ?? link.text ?? '').trim();
+        const href = String(link.href ?? '').trim();
+        if (!cta || !href) return;
+        links.push({ cta, href });
+      });
+
+      if (project.cta && project.href) {
+        links.push({
+          cta: String(project.cta).trim(),
+          href: String(project.href).trim(),
+        });
+      }
+
+      if (project.cta2 && project.href2) {
+        links.push({
+          cta: String(project.cta2).trim(),
+          href: String(project.href2).trim(),
+        });
+      }
+
+      if (!links.length) {
+        links.push({
+          cta: project.cta ?? 'View project',
+          href: project.href ?? '#',
+        });
+      }
+
+      return {
+        title: project.title,
+        description: project.description ?? '',
+        links,
+      };
+    });
 }
 
 function renderProjects(projects) {
@@ -245,11 +278,19 @@ function renderProjects(projects) {
           <p class="project-kicker">Project ${index + 1}</p>
           <h3 class="project-title">${project.title}</h3>
           <p class="project-description">${project.description}</p>
-          <a class="project-link" href="${project.href}" ${
-            project.href.startsWith('http') || project.href.toLowerCase().endsWith('.pdf')
-              ? 'target="_blank" rel="noopener noreferrer"'
-              : ''
-          }>${project.cta}</a>
+          <div class="project-links">
+            ${project.links
+              .map(
+                (link) => `
+                  <a class="project-link" href="${link.href}" ${
+                    link.href.startsWith('http') || link.href.toLowerCase().endsWith('.pdf')
+                      ? 'target="_blank" rel="noopener noreferrer"'
+                      : ''
+                  }>${link.cta}</a>
+                `
+              )
+              .join('')}
+          </div>
         </article>
       `
     )

@@ -527,6 +527,12 @@ main {
   max-width: 68ch;
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.1rem;
+}
+
 .project-link {
   display: inline-flex;
   align-items: center;
