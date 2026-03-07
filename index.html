@@ -69,12 +69,19 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
 
     <section id="about" class="section about">
       <div class="section-header" data-reveal>
         <h2>About</h2>
         <p>Curious-minded analyst bridging creative, causal, critical, and data-driven insights beyond different disciplines. Love connecting technology with human perspectives.</p>
+      </div>
+      <div class="about-media" data-reveal style="--reveal-delay: 120ms;">
+        <video class="about-video" autoplay muted loop playsinline preload="metadata" aria-label="Portfolio video by Gerardo Corral">
+          <source src="assets/video/lowRes.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
       <div class="section-content" data-reveal style="--reveal-delay: 80ms;">
         <p>
@@ -115,15 +122,38 @@
         </p>
       </div>
 
-      <div class="projects-carousel" data-reveal style="--reveal-delay: 80ms;">
-        <button class="carousel-arrow" id="projects-prev" type="button" aria-label="Show previous project">&#8249;</button>
-        <div class="projects-viewport" aria-live="polite">
-          <div class="projects-track" id="projects-track" role="list"></div>
-        </div>
-        <button class="carousel-arrow" id="projects-next" type="button" aria-label="Show next project">&#8250;</button>
-      </div>
+      <div class="projects-showcase">
+        <div class="projects-main">
+          <div class="projects-carousel" data-reveal style="--reveal-delay: 80ms;">
+            <button class="carousel-arrow" id="projects-prev" type="button" aria-label="Show previous project">&#8249;</button>
+            <div class="projects-viewport" aria-live="polite">
+              <div class="projects-track" id="projects-track" role="list"></div>
+            </div>
+            <button class="carousel-arrow" id="projects-next" type="button" aria-label="Show next project">&#8250;</button>
+          </div>
 
-      <p class="projects-counter" id="projects-counter" data-reveal style="--reveal-delay: 140ms;"></p>
+          <p class="projects-counter" id="projects-counter" data-reveal style="--reveal-delay: 140ms;"></p>
+        </div>
+
+        <aside class="projects-model-panel" data-project-model data-reveal style="--reveal-delay: 170ms;" aria-label="3D model preview">
+          <model-viewer
+            id="projects-model-viewer"
+            src="assets/models/MarionetaLowRes.glb"
+            alt="3D model of La Marioneta Filosofica"
+            camera-controls
+            disable-pan
+            interaction-prompt="none"
+            camera-orbit="0deg 75deg auto"
+            exposure="1"
+            shadow-intensity="0.5"
+            loading="eager"
+            reveal="auto"
+            touch-action="pan-y"
+          >
+            Your browser does not support 3D model preview.
+          </model-viewer>
+        </aside>
+      </div>
     </section>
   </main>
   <footer id="contact" class="site-footer">
@@ -143,6 +173,7 @@
     </div>
   </footer>
 
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script src="assets/js/main.js" defer></script>
 </body>  
 </html>

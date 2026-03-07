@@ -7,6 +7,8 @@ const projectsTrack = document.getElementById('projects-track');
 const projectsPrevButton = document.getElementById('projects-prev');
 const projectsNextButton = document.getElementById('projects-next');
 const projectsCounter = document.getElementById('projects-counter');
+const projectsModelPanel = document.querySelector('[data-project-model]');
+const projectsModelViewer = document.getElementById('projects-model-viewer');
 
 const defaultProjects = [
   {
@@ -178,6 +180,39 @@ function bindProjectControls() {
   });
 
   projectControlsBound = true;
+}
+
+function bindProjectsModelHover() {
+  if (!projectsModelPanel || !projectsModelViewer) return;
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const baseTheta = 0;
+  const basePhi = 75;
+  const maxTheta = 5;
+  const maxPhiShift = 3;
+
+  const setOrbit = (theta, phi) => {
+    projectsModelViewer.setAttribute('camera-orbit', `${theta.toFixed(2)}deg ${phi.toFixed(2)}deg auto`);
+  };
+
+  setOrbit(baseTheta, basePhi);
+
+  projectsModelPanel.addEventListener('mousemove', (event) => {
+    const bounds = projectsModelPanel.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return;
+
+    const offsetX = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const offsetY = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+    const theta = baseTheta + offsetX * (maxTheta * 2);
+    const phi = basePhi - offsetY * (maxPhiShift * 2);
+    setOrbit(theta, phi);
+  });
+
+  projectsModelPanel.addEventListener('mouseleave', () => {
+    setOrbit(baseTheta, basePhi);
+  });
 }
 
 function moveProjectSlide(step) {
@@ -352,5 +387,6 @@ function renderSkills(skills) {
 }
 
 registerRevealElements();
+bindProjectsModelHover();
 loadSkills();
 loadProjects();
