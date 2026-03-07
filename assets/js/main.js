@@ -187,7 +187,7 @@ function bindProjectsModelHover() {
   if (!window.matchMedia('(pointer: fine)').matches) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const baseTheta = 0;
+  const baseTheta = 90;
   const basePhi = 75;
   const maxTheta = 5;
   const maxPhiShift = 3;
