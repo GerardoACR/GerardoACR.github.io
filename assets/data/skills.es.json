@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Python",
+    "level": "Intermedio",
+    "description": "Pandas, Seaborn, NumPy, scikit-learn, DoWhy"
+  },
+  {
+    "name": "R",
+    "level": "Intermedio",
+    "description": ""
+  },
+  {
+    "name": "JavaScript",
+    "level": "Intermedio bajo",
+    "description": ""
+  },
+  {
+    "name": "SQL",
+    "level": "Intermedio bajo",
+    "description": ""
+  },
+  {
+    "name": "Español",
+    "level": "Nativo",
+    "description": ""
+  },
+  {
+    "name": "Inglés",
+    "level": "C1, TOEFL iBT",
+    "description": ""
+  },
+  {
+    "name": "Italiano",
+    "level": "C1, Universidad de Bolonia",
+    "description": ""
+  },
+  {
+    "name": "Japonés",
+    "level": "A1",
+    "description": "Sin certificación"
+  },
+  {
+    "name": "Adobe",
+    "level": "Avanzado",
+    "description": "Photoshop, Premiere"
+  },
+  {
+    "name": "IA generativa",
+    "level": "Intermedio alto",
+    "description": "Midjourney, ComfyUI, ChatGPT, NotebookLM"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "title": "El futuro de la industria del diseño con IA generativa [ESP]",
+    "description": "En julio de 2022, escribí un artículo para El Universal (en español) en el que sostengo que la IA generativa transformaría de manera fundamental la industria del diseño gráfico en los años siguientes. Puedes echarle un vistazo.",
+    "cta": "Ver artículo",
+    "href": "https://www.generacionuniversitaria.com.mx/tu-voz/dibujo-asistido-por-inteligencia-artificial-es-arte/"
+  },
+  {
+    "title": "El panóptico digital de la inteligencia artificial: entre la seguridad y la libertad [ENG]",
+    "description": "Redactado para mi curso de maestría Governance e Diritto delle PPAA, este trabajo examina cómo la IA aplicada a la seguridad pública puede derivar en un panóptico digital y traduce marcos europeos (AI Act, GDPR, Data Governance Act) en una aplicación práctica para empresas que desarrollan o suministran IA al gobierno de forma segura, auditable y respetuosa de los derechos.",
+    "cta": "Leer el artículo (PDF)",
+    "href": "assets/documents/panopticPaper.pdf"
+  },
+  {
+    "title": "Ensayos de opinión sobre filosofía [ESP]",
+    "description": "Publico textos breves de opinión sobre temas diversos, y seguiré agregando nuevos artículos allí. Puedes visitar mi Medium.",
+    "cta": "Visitar mi Medium",
+    "href": "https://gercorral.medium.com"
+  },
+  {
+    "title": "Amenazas cibernéticas en IIoT: ¿Puede el ML mitigar vulnerabilidades y prevenir daños? [ENG]",
+    "description": "Este trabajo examina cómo el ML puede apoyar la detección de intrusiones en entornos del Internet Industrial de las Cosas y Tecnología Operacional (IIoT/OT). A partir de experimentos con el conjunto de datos ToN_IoT Modbus, evalúa si los modelos de ML pueden ayudar a detectar amenazas cibernéticas, reducir ataques no detectados y mitigar riesgos para la infraestructura crítica, al tiempo que contribuyen a una perspectiva orientada a la gobernanza, en la que la detección respalda una gestión del riesgo cibernético y una toma de decisiones más informadas.",
+    "links": [
+      {
+        "cta": "Leer el artículo (PDF)",
+        "href": "assets/documents/cyberThreatsInIIoT.pdf"
+      },
+      {
+        "cta": "Ver repositorio completo",
+        "href": "https://github.com/GerardoACR/iiot_ids_project"
+      }
+    ]
+  }
+]

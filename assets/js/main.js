@@ -357,13 +357,23 @@ function renderProjects(projects) {
 async function loadProjects() {
   if (!projectsTrack) return;
 
+  const lang = document.documentElement.lang?.toLowerCase().split('-')[0];
+  const projectSources =
+    lang && lang !== 'en' ? [`assets/data/projects.${lang}.json`, 'assets/data/projects.json'] : ['assets/data/projects.json'];
+
   try {
-    const response = await fetch('assets/data/projects.json');
-    if (!response.ok) {
-      throw new Error(`Unable to load projects: ${response.statusText}`);
+    let projects = null;
+    for (const source of projectSources) {
+      const response = await fetch(source);
+      if (!response.ok) continue;
+      projects = await response.json();
+      break;
     }
 
-    const projects = await response.json();
+    if (!projects) {
+      throw new Error('Unable to load projects from configured sources.');
+    }
+
     renderProjects(projects);
   } catch (error) {
     console.error(error);
@@ -373,12 +383,24 @@ async function loadProjects() {
 
 async function loadSkills() {
   if (!skillsGrid) return;
+
+  const lang = document.documentElement.lang?.toLowerCase().split('-')[0];
+  const skillSources =
+    lang && lang !== 'en' ? [`assets/data/skills.${lang}.json`, 'assets/data/skills.json'] : ['assets/data/skills.json'];
+
   try {
-    const response = await fetch('assets/data/skills.json');
-    if (!response.ok) {
-      throw new Error(`Unable to load skills: ${response.statusText}`);
+    let skills = null;
+    for (const source of skillSources) {
+      const response = await fetch(source);
+      if (!response.ok) continue;
+      skills = await response.json();
+      break;
     }
-    const skills = await response.json();
+
+    if (!skills) {
+      throw new Error('Unable to load skills from configured sources.');
+    }
+
     renderSkills(skills);
   } catch (error) {
     console.error(error);
