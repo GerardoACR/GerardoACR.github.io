@@ -76,7 +76,7 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(2.7rem, 7.4vw, 5.8rem);
+  font-size: clamp(2rem, 6.9vw, 5rem);
   text-wrap: balance;
 }
 
@@ -176,6 +176,47 @@ html.has-logo-image .logo-fallback {
   color: var(--muted);
   padding-bottom: 0.3rem;
   border-bottom: 1px solid transparent;
+}
+
+.lang-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-left: 0.35rem;
+}
+
+.lang-switch {
+  width: 2rem;
+  height: 2rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: #d6d6cf !important;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  font-size: 0.68rem !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: none;
+}
+
+.lang-switch:hover,
+.lang-switch:focus-visible {
+  border-color: rgba(255, 255, 255, 0.46) !important;
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.04);
+  transform: none;
+}
+
+.lang-switch.is-active {
+  color: #0a0a0a !important;
+  border-color: #f0f0ea !important;
+  background: #f0f0ea;
+  box-shadow: none;
 }
 
 .nav-list a:hover,
@@ -825,6 +866,16 @@ main {
   .nav-list a {
     font-size: 0.9rem;
     padding-bottom: 0.15rem;
+  }
+
+  .lang-group {
+    gap: 0.45rem;
+    margin-left: 0;
+  }
+
+  .lang-switch {
+    width: 2.15rem;
+    height: 2.15rem;
   }
 
   .section-header {

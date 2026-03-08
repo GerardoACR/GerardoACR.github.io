@@ -2,6 +2,7 @@ const navToggle = document.querySelector('.nav-toggle');
 const navList = document.querySelector('.nav-list');
 const yearEl = document.getElementById('current-year');
 const skillsGrid = document.getElementById('skills-grid');
+const siteLogo = document.querySelector('.site-logo');
 const logoMark = document.querySelector('.logo-mark');
 const projectsTrack = document.getElementById('projects-track');
 const projectsPrevButton = document.getElementById('projects-prev');
@@ -121,6 +122,23 @@ if (logoMark instanceof HTMLImageElement) {
   } else {
     logoMark.addEventListener('load', setLogoReady, { once: true });
   }
+}
+
+if (siteLogo instanceof HTMLAnchorElement) {
+  siteLogo.addEventListener('click', (event) => {
+    // Keep normal browser behavior for modified clicks (new tab/window, etc.).
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return;
+    }
+
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (navList && navToggle) {
+      navList.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
 }
 
 if (navToggle && navList) {
