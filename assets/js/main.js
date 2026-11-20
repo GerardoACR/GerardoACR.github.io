@@ -11,83 +11,6 @@ const projectsCounter = document.getElementById('projects-counter');
 const projectsModelPanel = document.querySelector('[data-project-model]');
 const projectsModelViewer = document.getElementById('projects-model-viewer');
 
-const defaultProjects = [
-  {
-    title: 'Future of design industry with GenAI [ESP]',
-    description:
-      'In July 2022, I wrote an article for El Universal (in Spanish) arguing that generative AI would fundamentally reshape the graphic design industry in the years ahead. Feel free to check it out.',
-    cta: 'Check it out',
-    href: 'https://www.generacionuniversitaria.com.mx/tu-voz/dibujo-asistido-por-inteligencia-artificial-es-arte/',
-  },
-  {
-    title: 'The Digital Panopticon of Artificial Intelligence: between Safety and Freedom',
-    description:
-      "Drafted for my master's course Governance e Diritto delle PPAA, this paper examines how AI for public safety can drift into a digital panopticon and translates EU frameworks (AI Act, GDPR, Data Governance Act) into a practical application for companies that build or supply AI to government in a safe, auditable, and rights-respecting way.",
-    cta: 'Read the paper (PDF)',
-    href: 'assets/documents/panopticPaper.pdf',
-  },
-  {
-    title: 'Opinion Essays on Philosophy [ESP]',
-    description:
-      'I publish short opinion pieces on diverse topics, and I will keep adding new articles there. Feel free to visit my Medium.',
-    cta: 'Visit my Medium',
-    href: 'https://gercorral.medium.com',
-  },
-];
-
-const defaultSkills = [
-  {
-    name: 'Python',
-    level: 'Intermediate',
-    description: 'Pandas, Seaborn, Numpy, Sklearn, DoWhy',
-  },
-  {
-    name: 'R',
-    level: 'Intermediate',
-    description: '',
-  },
-  {
-    name: 'JavaScript',
-    level: 'Low intermediate',
-    description: '',
-  },
-  {
-    name: 'SQL',
-    level: 'Low intermediate',
-    description: '',
-  },
-  {
-    name: 'Spanish',
-    level: 'Native',
-    description: '',
-  },
-  {
-    name: 'English',
-    level: 'C1 Toefl iBT',
-    description: '',
-  },
-  {
-    name: 'Italian',
-    level: 'C1 University of Bologna',
-    description: '',
-  },
-  {
-    name: 'Japanese',
-    level: 'A1',
-    description: 'Without certification',
-  },
-  {
-    name: 'Adobe',
-    level: 'Advanced',
-    description: 'Photoshop, Premiere',
-  },
-  {
-    name: 'Gen AI',
-    level: 'High intermediate',
-    description: 'Midjourney, ComfyUI, ChatGPT, NotebookLM',
-  },
-];
-
 let activeProjectIndex = 0;
 let projectCount = 0;
 let projectControlsBound = false;
@@ -291,7 +214,7 @@ function normalizeProjects(projects) {
 
       if (!links.length) {
         links.push({
-          cta: project.cta ?? 'View project',
+          cta: project.cta ?? projectsTrack.dataset.linkLabel,
           href: project.href ?? '#',
         });
       }
@@ -313,8 +236,7 @@ function renderProjects(projects) {
   if (!projectCount) {
     projectsTrack.innerHTML = `
       <article class="project-slide projects-empty" role="listitem">
-        <h3>No projects yet</h3>
-        <p>Add entries in <code>assets/data/projects.json</code> to populate this carousel.</p>
+        <h3>${projectsTrack.dataset.emptyLabel}</h3>
       </article>
     `;
     activeProjectIndex = 0;
@@ -328,7 +250,7 @@ function renderProjects(projects) {
     .map(
       (project, index) => `
         <article class="project-slide" role="listitem" tabindex="0" aria-hidden="${index === 0 ? 'false' : 'true'}">
-          <p class="project-kicker">Project ${index + 1}</p>
+          <p class="project-kicker">${projectsTrack.dataset.projectLabel} ${index + 1}</p>
           <h3 class="project-title">${project.title}</h3>
           <p class="project-description">${project.description}</p>
           <div class="project-links">
@@ -354,79 +276,70 @@ function renderProjects(projects) {
   updateProjectCarousel();
 }
 
-async function loadProjects() {
-  if (!projectsTrack) return;
-
-  const lang = document.documentElement.lang?.toLowerCase().split('-')[0];
-  const projectSources =
-    lang && lang !== 'en' ? [`assets/data/projects.${lang}.json`, 'assets/data/projects.json'] : ['assets/data/projects.json'];
-
-  try {
-    let projects = null;
-    for (const source of projectSources) {
-      const response = await fetch(source);
-      if (!response.ok) continue;
-      projects = await response.json();
-      break;
-    }
-
-    if (!projects) {
-      throw new Error('Unable to load projects from configured sources.');
-    }
-
-    renderProjects(projects);
-  } catch (error) {
-    console.error(error);
-    renderProjects(defaultProjects);
-  }
-}
-
-async function loadSkills() {
-  if (!skillsGrid) return;
-
-  const lang = document.documentElement.lang?.toLowerCase().split('-')[0];
-  const skillSources =
-    lang && lang !== 'en' ? [`assets/data/skills.${lang}.json`, 'assets/data/skills.json'] : ['assets/data/skills.json'];
-
-  try {
-    let skills = null;
-    for (const source of skillSources) {
-      const response = await fetch(source);
-      if (!response.ok) continue;
-      skills = await response.json();
-      break;
-    }
-
-    if (!skills) {
-      throw new Error('Unable to load skills from configured sources.');
-    }
-
-    renderSkills(skills);
-  } catch (error) {
-    console.error(error);
-    renderSkills(defaultSkills);
-  }
-}
-
 function renderSkills(skills) {
   if (!Array.isArray(skills)) return;
-  skillsGrid.innerHTML = skills
-    .map((skill, index) => {
-      const { name, level, description } = skill;
-      return `
-        <article class="skill-item" role="listitem" data-reveal style="--reveal-delay: ${index * 45}ms;">
-          <h3>${name ?? 'Skill'}</h3>
-          ${level ? `<span class="skill-level">${level}</span>` : ''}
-          ${description ? `<p>${description}</p>` : ''}
-        </article>
-      `;
-    })
-    .join('');
+  skillsGrid.querySelectorAll('[data-skill-group]').forEach((grid) => {
+    const items = skills.filter((skill) => (skill.group ?? 'other') === grid.dataset.skillGroup);
+    grid.closest('.skill-group').hidden = items.length === 0;
+    grid.innerHTML = items.map(({ name, level, description }, index) => `
+      <article class="skill-item" role="listitem" data-reveal style="--reveal-delay: ${index * 45}ms;">
+        <h4>${name}</h4>
+        ${level ? `<span class="skill-level">${level}</span>` : ''}
+        ${description ? `<p>${description}</p>` : ''}
+      </article>
+    `).join('');
+  });
 
   registerRevealElements(skillsGrid);
 }
 
+function addBackgroundParticles() {
+  const particlesPerSide = 312;
+  for (const side of ['left', 'center-left', 'center-right', 'right']) {
+    const isCenter = side.startsWith('center');
+    const count = isCenter ? particlesPerSide / 2 : particlesPerSide;
+    const band = document.createElement('div');
+    band.className = `particle-band particle-band--${side}`;
+    band.setAttribute('aria-hidden', 'true');
+
+    for (let i = 0; i < count; i++) {
+      const dot = document.createElement('i');
+      const depth = Math.random() ** 1.5;
+      const size = 1 + 1.6 * depth + 2 * Math.max(0, depth - 0.75);
+      const rise = 75 - 42 * depth + Math.random() * 8;
+      const position = (i + Math.random()) / count;
+      const opacity = (0.24 + 0.47 * depth) * (isCenter ? 0.5 : 1);
+      dot.style.setProperty('--x', `${position * 100}%`);
+      dot.style.setProperty('--size', `${size * (isCenter ? 0.65 : 1)}px`);
+      dot.style.setProperty('--alpha', opacity.toFixed(3));
+      dot.style.setProperty('--rise', `${rise}s`);
+      dot.style.setProperty('--phase', `${-Math.random() * rise}s`);
+      dot.style.setProperty('--sway', `${4 + Math.random() * 5}s`);
+      dot.style.setProperty('--drift', `${3 + depth * 9}px`);
+      band.append(dot);
+    }
+    document.body.prepend(band);
+  }
+}
+
+document.querySelectorAll('[data-film-id]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    if (location.protocol === 'file:' || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const player = document.createElement('iframe');
+    player.className = 'film-player';
+    player.title = link.getAttribute('aria-label');
+    player.src = `https://www.youtube-nocookie.com/embed/${link.dataset.filmId}?autoplay=1&playsinline=1`;
+    player.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    player.allowFullscreen = true;
+    player.referrerPolicy = 'strict-origin-when-cross-origin';
+    link.replaceWith(player);
+    player.focus();
+  });
+});
+
+addBackgroundParticles();
 registerRevealElements();
 bindProjectsModelHover();
-loadSkills();
-loadProjects();
+renderSkills(portfolioSkills);
+renderProjects(portfolioProjects);
