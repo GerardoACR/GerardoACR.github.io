@@ -472,8 +472,7 @@ main {
 }
 
 .section {
-  border-top: 1px solid var(--border-soft);
-  padding: 5.6rem 1.5rem;
+  padding: clamp(2.7rem, 5.4vw, 4.5rem) 1.5rem;
 }
 
 .section-header,
@@ -890,8 +889,7 @@ main {
 
 .site-footer {
   padding: 4.6rem 1.5rem 2.2rem;
-  border-top: 1px solid var(--border-soft);
-  background: linear-gradient(180deg, rgba(12, 12, 12, 0.55), rgba(8, 8, 8, 0.92));
+  background: linear-gradient(180deg, transparent, rgba(8, 8, 8, 0.92));
 }
 
 .footer-content {
@@ -914,8 +912,6 @@ main {
 
 .footer-meta {
   margin-top: 2.6rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--border-soft);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
